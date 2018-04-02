@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const Context = React.createContext();
-const Provider = ({ children }) => (
-  <MyContext.Provider>
-    {children}
-  </MyContext.Provider>
-);
+
+
+class Provider extends Component {
+  render() {
+    return (
+      <Context.Provider>
+        {this.props.children}
+      </Context.Provider>
+    )
+  }
+}
 
 export default Provider;
