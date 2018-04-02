@@ -4,15 +4,21 @@ const { Consumer } = Context;
 
 class Provider extends Component {
   state = {
-    isLogged: false,
     name: 'Lucas'
+  }
+
+  toggleLastName = () => {
+    this.setState((prevState) => ({
+      name: (prevState.name === 'Lucas') ? prevState.name + ' Ferreira' : 'Lucas',
+    }));
   }
 
 
   render() {
+    const { toggleLastName } = this;
     const { isLogged, name } = this.state;
     return (
-      <Context.Provider value={{ isLogged, name }}>
+      <Context.Provider value={{ toggleLastName, isLogged, name }}>
         {this.props.children}
       </Context.Provider>
     )
